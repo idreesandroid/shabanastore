@@ -34,6 +34,7 @@
                         <ul class="nav nav-pills">
                             <li><a href="#"><i class="fa fa-phone"></i>+92 345 8809715</a></li>
                             <li><a href="#"><i class="fa fa-envelope"></i> info@shabanastore.com</a></li>
+                            <li><a href="{{url('admin')}}"><i class="fa fa-user"></i> Admin</a></li>
                         </ul>
                     </div>
                 </div>

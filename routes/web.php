@@ -30,6 +30,8 @@ Route::get('/', function () {
     return view('home',compact('featuredProducts','recomended','tshirta','sunglasses','blazers','homeslider','kids','poloshirts'))->with('title',$title);
 });
 
+Route::get('/add-product',[ProductController::class,'create'])->name('product.add');
+
 Route::get('/products',[ProductController::class,'index'])->name('products.list');
 
 Route::get('/product-detail/{id}',[ProductController::class,'show'])->name('products.detail');

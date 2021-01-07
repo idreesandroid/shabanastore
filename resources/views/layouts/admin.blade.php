@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "{{ config('app.locale') }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link href="{{asset('assets/css/all.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/daterangepicker.css')}}" rel="stylesheet">
     <!-- overlayScrollbars -->
     <link href="{{asset('assets/css/OverlayScrollbars.min.css')}}" rel="stylesheet">
     <!-- Theme style -->
     <link href="{{asset('assets/css/adminlte.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/dropzone.min.css')}}" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -24,7 +27,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="/shabanastore" class="nav-link">Home</a>
+                <a href="/shabanastore" class="nav-link">website</a>
             </li>
         </ul>
 
@@ -138,12 +141,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashbo</h1>
+                        <h1 class="m-0">Admin Dashboard</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v2</li>
+                            <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -164,10 +167,10 @@
 
     <!-- Main Footer -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+        <strong>Copyright &copy; {{date('Y')}} <a href="{{url('/')}}">Shabana Store</a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.1.0-pre
+            <b>Version</b> 1.0
         </div>
     </footer>
 </div>
@@ -196,5 +199,9 @@
 <script src="{{asset('assets/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('assets/js/dashboard2.js')}}"></script>
+<script src="{{asset('assets/js/daterangepicker.js')}}"></script>
+<script src="{{asset('assets/js/select2.min.js')}}"></script>
+<script src="{{asset('assets/js/dropzone.min.js')}}"></script>
+<script src="{{asset('assets/js/main.js')}}"></script>
 </body>
 </html>

@@ -26,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $title = "Add Product";
+        return view('admin/product/add_product')->with('title',$title);
     }
 
     /**
