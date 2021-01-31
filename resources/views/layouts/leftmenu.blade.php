@@ -398,11 +398,17 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-header">Stock</li>
+                <li class="nav-header">Blog</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
-                        <p>Add Stock</p>
+                        <i class="nav-icon fas fa-blog fa-spin fa-3x"></i>
+                        <p>All Posts</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('create.blog')}}" class="nav-link">
+                        <i class="nav-icon fab fa-blogger fa-spin fa-3x"></i>
+                        <p>Add Post</p>
                     </a>
                 </li>
                 <li class="nav-header">Category & Brand</li>

@@ -15,7 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'Test User and Blog Relation';
+        $users = User::with('getUserRelation','getPostRelation')->get();
+        return view('user', compact('users','title'));
     }
 
     /**

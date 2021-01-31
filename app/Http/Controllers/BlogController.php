@@ -25,8 +25,8 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   $title = 'Create Blog Post';
+        return view('admin/blog/create', compact('title'));
     }
 
     /**
@@ -37,7 +37,17 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title'      => 'required|min:5',
+            'description'  => 'required'
+        ]);
+
+        $blog_id = Blog::insertGetId([
+            'title' => $request->title,
+            'description' => $request->description,
+            'user_id' => 1
+        ]);
+        return ($blog_id) ? true : false;
     }
 
     /**

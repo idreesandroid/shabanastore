@@ -16,6 +16,8 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Front End Route
+
 
 Route::get('/', function () {
     $title = 'Home Page';
@@ -54,4 +56,16 @@ Route::post('/login-user',[UserController::class,'loginUser'])->name('login.user
 
 Route::post('/register',[UserController::class,'registerUser'])->name('register.user');
 
+Route::get('/user',[UserController::class,'index'])->name('user.index');
+
+
+
+//Admin Routes
+//Dashboard Route
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
+
+
+//Blog Route
+Route::get('/blog/create',[BlogController::class,'create'])->name('create.blog');
+
+Route::post('/blog/store',[BlogController::class,'store'])->name('store.blog');
