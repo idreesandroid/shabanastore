@@ -16,7 +16,6 @@ class User extends Model
     public function getUserRelation(){
         return $this->hasOne('App\Models\Blog','user_id','id');
     }
-
     public function getPostRelation(){
         return $this->hasMany('App\Models\Blog','user_id','id');
     }

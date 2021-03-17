@@ -295,7 +295,7 @@
     <script src="{{asset('assets/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr-kGPnX_Xv0Jam58Rxs2OuZ745rvM6KE&callback=initMap&libraries=&v=weekly"
+    src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAP_KEY')}}&callback=initMap&libraries=&v=weekly"
     defer
 ></script>
 </body>

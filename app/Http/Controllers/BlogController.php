@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -14,8 +15,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $title = 'Blog';
-        $blog = ['one','two','three'];
+        $title = 'Blog';        
+        $blog = Blog::with('blogWriter')->get();       
         return view('blog',compact('blog'))->with('title',$title);
     }
 
@@ -94,5 +95,10 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         //
+    }
+
+    public function usreBlogs(){
+        $usres = User::with('getPostRelation')->get();
+        dd($usres);
     }
 }

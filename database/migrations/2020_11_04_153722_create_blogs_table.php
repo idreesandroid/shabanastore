@@ -16,8 +16,10 @@ class CreateBlogsTable extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');           $table->string('title')->nullable(true);
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');           
+            $table->string('title')->nullable(true);
             $table->string('description')->nullable(true);
+            $table->string('blog_image')->nullable(true);
             $table->timestamps();
             $table->softDeletes();
         });

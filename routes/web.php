@@ -69,3 +69,5 @@ Route::get('/admin',[AdminController::class,'index'])->name('admin');
 Route::get('/blog/create',[BlogController::class,'create'])->name('create.blog');
 
 Route::post('/blog/store',[BlogController::class,'store'])->name('store.blog');
+
+Route::get('users',[BlogController::class,'usreBlogs'])->name('usreBlogs.blog');

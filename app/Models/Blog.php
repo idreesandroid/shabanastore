@@ -13,4 +13,8 @@ class Blog extends Model
 
     protected $dates = ['deleted_at'];
 
+     function blogWriter(){
+     	return $this->hasOne(User::class,'id','user_id');
+     }   
+
 }
