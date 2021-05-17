@@ -19,6 +19,11 @@ class ProductController extends Controller
         return view('products',compact('products'))->with('title',$title);
     }
 
+    public function ApiIndex()
+    {
+       return Product::all();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -41,6 +46,17 @@ class ProductController extends Controller
         //
     }
 
+    public function ApiStore(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'status' => 'required',
+        ]);
+        return Product::create($request->all())->id;
+    }
+
     /**
      * Display the specified resource.
      *
@@ -58,6 +74,10 @@ class ProductController extends Controller
         $tags = [3,4,1,2];
         $recomended = [1,3,2];
         return view('product_detail',compact('slid1','slid2','slid3','detail','compProfile','tags','recomended'))->with('title',$title);
+    }
+
+    public function ApiShow($id){        
+        return Product::find($id);
     }
 
     /**
@@ -83,6 +103,13 @@ class ProductController extends Controller
         //
     }
 
+    public function ApiUpdate(Request $request, $id){
+        $product = Product::find($id);
+        $product->update($request->all());
+        return $product;
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -92,6 +119,17 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    public function ApiDestroy($id)
+    {
+        return Product::destroy($id);
+    }
+
+    public function ApiSearch($keyword){
+        return Product::where('title','like','%'.$keyword.'%')
+                        ->orWhere('description','like','%'.$keyword.'%')
+                        ->get();
     }
 
     public function checkOut(){

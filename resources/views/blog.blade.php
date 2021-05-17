@@ -150,8 +150,14 @@
                             <div class="post-meta">
                                 <ul>
                                     <li><i class="fa fa-user"></i> {{$item->blogWriter->name}}</li>
-                                    <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-                                    <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
+                                    <li><i class="fa fa-clock-o"></i>
+                                        <?php 
+                                        $time = explode(" ", $item->created_at);
+                                        echo $time[1];
+                                         ?>
+
+                                    </li>
+                                    <li><i class="fa fa-calendar"></i> <?php echo $time[0]; ?></li>
                                 </ul>
                                 <span>
 										<i class="fa fa-star"></i>
@@ -164,7 +170,7 @@
                             <a href="">
                                 <img src="{{asset('assets/images/blog/'.$item->blog_image)}}" alt="">
                             </a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p>{{$item->description}}</p>
                             <a  class="btn btn-primary" href="{{url('/blog-detail/'.$item->id)}}">Read More</a>
                         </div>
                         @endforeach

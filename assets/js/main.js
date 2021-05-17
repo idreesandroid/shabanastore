@@ -9,7 +9,8 @@ var RGBChange = function () {
 };
 
 /*scroll to top*/
-
+if($("#scrollUp").html()){
+    
 $(document).ready(function () {
     $(function () {
         $.scrollUp({
@@ -31,6 +32,7 @@ $(document).ready(function () {
     });
 });
 
+}
 // Initialize and add the map
 function initMap() {
 // The location of Uluru
@@ -60,81 +62,108 @@ $(function () {
     });
 
     //Datemask dd/mm/yyyy
-    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    if($('#datemask').html()){
+        $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
+    }
     //Datemask2 mm/dd/yyyy
-    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    if($('#datemask2').html()){
+        $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' });
+    }
     //Money Euro
-    $('[data-mask]').inputmask()
-
+    if($('#datemask').html()){
+        $('[data-mask]').inputmask();
+    }
     //Date range picker
-    $('#reservationdate').datetimepicker({
-        format: 'L'
-    });
+    if($('#reservationdate').html()){
+        $('#reservationdate').datetimepicker({
+            format: 'L'
+        });
+    }
     //Date range picker
-    $('#reservation').daterangepicker()
+    if($('#reservation').html()){
+        $('#reservation').daterangepicker();
+    }
     //Date range picker with time picker
-    $('#reservationtime').daterangepicker({
-        timePicker: true,
-        timePickerIncrement: 30,
-        locale: {
-            format: 'MM/DD/YYYY hh:mm A'
-        }
-    })
+    if($('#reservationtime').html()){
+        $('#reservationtime').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'MM/DD/YYYY hh:mm A'
+            }
+        });
+    }
     //Date range as a button
-    $('#daterange-btn').daterangepicker(
-        {
-            ranges   : {
-                'Today'       : [moment(), moment()],
-                'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
-                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-                'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    if($('#daterange-btn').html()){
+
+        $('#daterange-btn').daterangepicker(
+            {
+                ranges   : {
+                    'Today'       : [moment(), moment()],
+                    'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate  : moment()
             },
-            startDate: moment().subtract(29, 'days'),
-            endDate  : moment()
-        },
-        function (start, end) {
-            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-        }
-    )
+            function (start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+            }
+        )
+    }
 
     //Timepicker
-    $('#timepicker').datetimepicker({
-        format: 'LT'
-    })
+    if($('#timepicker').html()){        
+        $('#timepicker').datetimepicker({
+            format: 'LT'
+        });
+    }
 
     //Bootstrap Duallistbox
-    $('.duallistbox').bootstrapDualListbox()
-
+    if($('.duallistbox').html()){  
+        $('.duallistbox').bootstrapDualListbox();
+    }
     //Colorpicker
-    $('.my-colorpicker1').colorpicker()
+    if($('.duallistbox').html()){ 
+        $('.my-colorpicker1').colorpicker();
+    }
     //color picker with addon
-    $('.my-colorpicker2').colorpicker()
-
-    $('.my-colorpicker2').on('colorpickerChange', function(event) {
-        $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-    });
-
-    $("input[data-bootstrap-switch]").each(function(){
-        $(this).bootstrapSwitch('state', $(this).prop('checked'));
-    });
-
+    if($('.duallistbox').html()){ 
+        $('.my-colorpicker2').colorpicker();
+    }
+    if($('.my-colorpicker2').html()){ 
+        $('.my-colorpicker2').on('colorpickerChange', function(event) {
+            $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+        });
+    }
+    if($('input[data-bootstrap-switch]').html()){ 
+        $("input[data-bootstrap-switch]").each(function(){
+            $(this).bootstrapSwitch('state', $(this).prop('checked'));
+        });
+    }
 })
 // BS-Stepper Init
-document.addEventListener('DOMContentLoaded', function () {
-    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-});
+if($('.bs-stepper').html()){
+
+    document.addEventListener('DOMContentLoaded', function () {
+        window.stepper = new Stepper(document.querySelector('.bs-stepper'));
+    });
+}
 
 // DropzoneJS Demo Code Start
 Dropzone.autoDiscover = false;
 
 // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-var previewNode = document.querySelector("#template");
-previewNode.id = "";
-var previewTemplate = previewNode.parentNode.innerHTML;
-previewNode.parentNode.removeChild(previewNode);
-
+if($("#previewNode").html()){    
+    var previewNode = document.querySelector("#template");
+    previewNode.id = "";
+    var previewTemplate = previewNode.parentNode.innerHTML;
+    previewNode.parentNode.removeChild(previewNode);
+}
+if($("#previews").html()){ 
 var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
     url: "/target-url", // Set the url
     thumbnailWidth: 80,
@@ -178,3 +207,58 @@ document.querySelector("#actions .cancel").onclick = function() {
     myDropzone.removeAllFiles(true);
 };
 // DropzoneJS Demo Code End
+
+
+}
+
+$(document).ready(function() {
+            $("#createPost").on('click',function(){
+                alert('title');
+
+            var title = $("#post_title").val();
+            if(!title.length){
+                $("#post_title").focus();
+                alert('Please insert the title');
+                return false;
+            }
+            var post_description = $("#post_description").val();
+            if(!post_description.length){
+                $("#post_description").focus();
+                alert('Please emter post description');
+                return false;
+            }
+            var json_data = {
+                'title' : title,
+                'description' : post_description,
+                '_token' : "{{ csrf_token() }}"
+            };
+            $.ajax({
+                url : "{{ route('store.blog') }}",
+                type: "POST",
+                data: json_data,
+                success : function(data) {
+                    if(data){
+                        $("#title").val("");
+                        $("#selectedVendorsInAddModel").val("");
+                        $("#add_MapData").val("");
+                        $("#addStatus").val("");
+                        $("#addCollectionModel .close").click();
+                        Swal.fire('Collection Area created', 'You clicked the button!','success').then((result) => {
+                            if(result.isConfirmed) {
+                                location.reload(true);
+                            }
+                        });
+                    }
+                },
+                error: function(){
+                    swal.fire("Error Completion Task!", "Error in Create Collection Area error", "error").then((result) => {
+                        if(result.isConfirmed) {
+                            location.reload(true);
+                        }
+                    });
+                }
+            });
+        });
+    });
+
+$("#blogPostTable").dataTable();

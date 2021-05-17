@@ -20,6 +20,14 @@ class BlogController extends Controller
         return view('blog',compact('blog'))->with('title',$title);
     }
 
+
+    public function list()
+    {
+        $title = 'Blog';        
+        $blog = Blog::with('blogWriter')->get();       
+        return view('admin.blog.list',compact('blog'))->with('title',$title);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

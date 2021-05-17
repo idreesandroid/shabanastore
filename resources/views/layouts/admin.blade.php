@@ -16,6 +16,8 @@
     <link href="{{asset('assets/css/adminlte.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/select2.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/dropzone.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/sweetalert.css')}}" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -202,6 +204,9 @@
 <script src="{{asset('assets/js/daterangepicker.js')}}"></script>
 <script src="{{asset('assets/js/select2.min.js')}}"></script>
 <script src="{{asset('assets/js/dropzone.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery/validate.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery/sweetalert.min.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
 </body>
 </html>

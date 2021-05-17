@@ -13,7 +13,9 @@ $(function () {
   //-----------------------
 
   // Get context with jQuery - using jQuery's .get() method.
-  var salesChartCanvas = $('#salesChart').get(0).getContext('2d')
+if($('#salesChart').html()){
+  var salesChartCanvas = $('#salesChart').get(0).getContext('2d');
+}
 
   var salesChartData = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -65,12 +67,14 @@ $(function () {
 
   // This will get the first returned node in the jQuery collection.
   // eslint-disable-next-line no-unused-vars
-  var salesChart = new Chart(salesChartCanvas, {
-    type: 'line',
-    data: salesChartData,
-    options: salesChartOptions
+  if(salesChartCanvas){    
+    var salesChart = new Chart(salesChartCanvas, {
+      type: 'line',
+      data: salesChartData,
+      options: salesChartOptions
+    }
+    );
   }
-  )
 
   //---------------------------
   // - END MONTHLY SALES CHART -
@@ -80,7 +84,9 @@ $(function () {
   // - PIE CHART -
   //-------------
   // Get context with jQuery - using jQuery's .get() method.
-  var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+if($('#pieChart').html()){
+  var pieChartCanvas = $('#pieChart').get(0).getContext('2d');
+}
   var pieData = {
     labels: [
       'Chrome',
@@ -105,12 +111,13 @@ $(function () {
   // Create pie or douhnut chart
   // You can switch between pie and douhnut using the method below.
   // eslint-disable-next-line no-unused-vars
+if(pieChartCanvas){ 
   var pieChart = new Chart(pieChartCanvas, {
     type: 'doughnut',
     data: pieData,
     options: pieOptions
   })
-
+}
   //-----------------
   // - END PIE CHART -
   //-----------------
@@ -119,6 +126,7 @@ $(function () {
    * ------------
    * Create a world map with markers
    */
+  if($('#world-map-markers').html()){
   $('#world-map-markers').mapael({
     map: {
       name: 'usa_states',
@@ -128,7 +136,7 @@ $(function () {
       }
     }
   })
-
+}
   // $('#world-map-markers').vectorMap({
   //   map              : 'world_en',
   //   normalizeFunction: 'polynomial',
@@ -265,4 +273,4 @@ $(function () {
   //     }
   //   ]
   // })
-})
+});

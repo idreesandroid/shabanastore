@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,19 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Protected Routes
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+	Route::post('/products', [ProductController::class, 'ApiStore']);
+	Route::put('/products/{id}', [ProductController::class, 'ApiUpdate']);
+	Route::delete('/products/{id}', [ProductController::class, 'ApiDestroy']);
+	Route::post('/logout', [AuthController::class, 'logout']);
+});
+
+//Public Routes
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/products/search/{keyword}', [ProductController::class, 'ApiSearch']);
+Route::get('/products', [ProductController::class, 'ApiIndex']);
+Route::get('/products/{id}', [ProductController::class, 'ApiShow']);
