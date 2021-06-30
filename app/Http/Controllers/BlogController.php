@@ -15,7 +15,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $title = 'Blog';        
+        $title = 'Blog Posts';        
         $blog = Blog::with('blogWriter')->get();       
         return view('blog',compact('blog'))->with('title',$title);
     }
